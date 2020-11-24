@@ -3,7 +3,7 @@ on:
   push:
     branches: [master]
 jobs:
-  Mi-primer-job
+  Mi-primer-job:
     name: Mi primer job
     runs-on: ubuntu-latest
     steps:
