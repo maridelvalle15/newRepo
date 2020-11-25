@@ -32,10 +32,9 @@ jobs:
         python -m unittest -v tests/test_persona.py
     - name: Validar resultado con errores
       if: ${{ failure() }}
-      uses: peter-evans/close-pull@v1
+      uses: crondaemon/close-pr@v1
       with:
-        pull-request-number: 1
-        comment: "Pull request cerrado debido a que las pruebas unitarias fallaron."
+        comment: "We do not accept PRs. If you have any questions, please feel free to contact us."
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Validar resultado sin errores
