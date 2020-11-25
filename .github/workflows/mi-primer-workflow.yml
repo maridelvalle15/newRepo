@@ -32,9 +32,11 @@ jobs:
         python -m unittest -v tests/test_persona.py
     - name: Validar resultado con errores
       if: ${{ failure() }}
+      uses: superbrothers/close-pull-request@v3
+      with:
+        comment: "Pull request cerrado debido a que las pruebas unitarias fallaron."
       env:
-        MENSAJE_ERROR: Una o varias pruebas fallaron
-      run: echo "::set-output name=respuesta::${MENSAJE_ERROR}"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Validar resultado sin errores
       if: ${{ success() }}
       uses: kentaro-m/auto-assign-action@v1.1.2
