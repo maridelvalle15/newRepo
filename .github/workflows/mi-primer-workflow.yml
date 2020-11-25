@@ -40,7 +40,6 @@ jobs:
       uses: kentaro-m/auto-assign-action@v1.1.2
       with:
         configuration-path: ".github/some_name_for_configs.yml"
-      run: echo "::set-output name=respuesta::${MENSAJE_EXITO}"
     - name: Cálculo de cubrimiento
       id: cubrimiento
       run: |
