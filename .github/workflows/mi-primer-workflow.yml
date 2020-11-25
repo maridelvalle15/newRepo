@@ -45,13 +45,9 @@ jobs:
       run: |
           coverage run -m unittest tests/test_persona.py
           coverage report -m
-  automerge:
-    name: Automerge
-    needs: job1
+  add-reviews:
     runs-on: ubuntu-latest
     steps:
-      - name: automerge
-        uses: "pascalgn/automerge-action@4536e8847eb62fe2f0ee52c8fa92d17aa97f932f"
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: ""
+      - uses: kentaro-m/auto-assign-action@v1.1.2
+        with:
+          configuration-path: ".github/some_name_for_configs.yml" # Only needed if you use something other than .github/auto_assign.yml
